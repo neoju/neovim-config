@@ -11,7 +11,7 @@ vim.pack.add({
 	-- other
 	"https://github.com/gbprod/cutlass.nvim",
 	"https://github.com/folke/todo-comments.nvim",
-	"httpsg.com/windwp/nvim-ts-autotag",
+	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/folke/tokyonight.nvim",
 	"https://github.com/MagicDuck/grug-far.nvim",
 	"https://github.com/lukas-reineke/virt-column.nvim",
