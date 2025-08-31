@@ -8,6 +8,11 @@ snacks.setup({
 	scroll = { enabled = true }, -- Enable the scroll module
 	notifier = { enabled = true },
 	terminal = { enabled = true },
+	indent = { enabled = true },
+	scope = { enabled = true },
+	scratch = { enabled = true },
+	zen = { enabled = true },
+	statuscolumn = { enabled = true },
 	picker = {
 		win = {
 			input = {
@@ -28,4 +33,16 @@ snacks.setup({
 
 local map = vim.keymap.set
 
-map("n", "<C-'>", snacks.terminal.toggle, { desc = "Toggle terminal" })
+map("n", "<C-'>", snacks.terminal.toggle, { desc = "Toggle Terminal" })
+
+map("n", "<leader>.", function()
+	snacks.scratch()
+end, { desc = "Toggle Scratch Buffer" })
+
+map("n", "<leader>S", function()
+	snacks.scratch.select()
+end, { desc = "Toggle Scratch Buffer" })
+
+map("n", "<leader>z", function()
+	snacks.zen()
+end, { desc = "Toggle zen mode" })

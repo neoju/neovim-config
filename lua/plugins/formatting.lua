@@ -15,6 +15,7 @@ conform.setup({
 		return {
 			timeout_ms = 500,
 			lsp_format = "fallback",
+			stop_after_first = true,
 		}
 	end,
 
@@ -24,7 +25,7 @@ conform.setup({
 		javascriptreact = { "prettierd", "prettier" },
 		typescript = { "prettierd", "prettier" },
 		typescriptreact = { "prettierd", "prettier" },
-		vue = { "prettierd", "prettier" },
+		vue = { "eslint_stylistic", "prettierd", "prettier" },
 		-- CSS/SCSS
 		css = { "prettierd", "prettier" },
 		scss = { "prettierd", "prettier" },
@@ -40,6 +41,23 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "black" },
 		go = { "goimports", "gofumpt" },
+	},
+
+	formatters = {
+		eslint_stylistic = {
+			command = "eslint_d",
+			args = { "$FILENAME", "--fix" },
+			require_cwd = true,
+			env = {
+				ESLINT_USE_FLAT_CONFIG = true,
+			},
+
+			-- A function that calculates the directory to run the command in
+			cwd = require("conform.util").root_file({
+				"eslint.config.mjs",
+				"package.json",
+			}),
+		},
 	},
 })
 

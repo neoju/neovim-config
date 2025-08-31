@@ -2,25 +2,7 @@ vim.pack.add({
 	-- dependencies
 	"https://github.com/nvim-lua/plenary.nvim",
 
-	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/kdheepak/lazygit.nvim",
-})
-
-require("gitsigns").setup({
-	signs = {
-		add = { text = "+" },
-		change = { text = "~" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-	},
-	signs_staged = {
-		add = { text = "+" },
-		change = { text = "~" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-	},
 })
 
 local map = vim.keymap.set
