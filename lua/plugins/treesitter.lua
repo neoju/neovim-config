@@ -1,6 +1,8 @@
 vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+	-- dependencies
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

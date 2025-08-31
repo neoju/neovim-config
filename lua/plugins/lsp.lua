@@ -1,12 +1,12 @@
 vim.pack.add({
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/rachartier/tiny-code-action.nvim",
+
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
 require("mason").setup()

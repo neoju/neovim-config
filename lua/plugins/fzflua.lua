@@ -1,9 +1,8 @@
 vim.pack.add({
-	-- for image preview
-	"https://github.com/folke/snacks.nvim",
+	-- dependencies
+	"https://github.com/folke/snacks.nvim", -- for image preview
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- for markdown preview
 	"https://github.com/nvim-tree/nvim-web-devicons",
-	-- for markdown preview
-	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 
 	"https://github.com/ibhagwan/fzf-lua",
 })

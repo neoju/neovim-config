@@ -6,19 +6,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+-- Map <esc> to close buffer in normal mode for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("QuitBufferWithESC", { clear = true }),
 	pattern = { "qf", "grug-far" },
 	callback = function()
-		-- Map <esc> to close buffer in normal mode
 		vim.keymap.set("n", "<ESC>", "<CMD>bd<CR>", { buffer = true, silent = true })
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.textwidth = 80
 	end,
 })
 

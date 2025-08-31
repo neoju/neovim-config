@@ -44,11 +44,6 @@ conform.setup({
 })
 
 map("n", "<leader>cF", function()
-	local notify_id = MiniNotify.add("Autoformatting " .. (vim.g.disable_autoformat and "enabled" or "disabled"))
-
-	vim.defer_fn(function()
-		MiniNotify.remove(notify_id)
-	end, 1000)
-
 	vim.g.disable_autoformat = not vim.g.disable_autoformat
+	Snacks.notify("Autoformatting " .. (vim.g.disable_autoformat and "disabled" or "enabled"))
 end, { desc = "Toggle Autoformatting" })

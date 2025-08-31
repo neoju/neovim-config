@@ -1,6 +1,9 @@
 vim.pack.add({
-	{ src = "https://github.com/Saghen/blink.cmp" },
+	-- dependencies
+	"https://github.com/giuxtaposition/blink-cmp-copilot",
 	{ src = "https://github.com/echasnovski/mini.icons", version = "stable" },
+
+	{ src = "https://github.com/Saghen/blink.cmp" },
 })
 
 local blink = require("blink.cmp")

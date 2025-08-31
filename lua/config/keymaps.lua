@@ -2,27 +2,25 @@ vim.g.mapleader = " "
 
 local map = vim.keymap.set
 
+map("n", "<C-s>", "<CMD>write<CR>", { desc = "Save" })
+map("n", "<leader>qq", "<CMD>quitall<CR>", { desc = "Quit all" })
+
 -- Clear search highlight
 map("n", "<ESC>", "<CMD>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Move Lines
-
 -- NOTE: The following keymaps work fine with most terminal emulators except ghostty.
--- local Aj = '<A-j>'
--- local Ak = '<A-k>'
+local Aj = "<A-j>"
+local Ak = "<A-k>"
 -- For the ghostty terminal:
-local Aj = "∆"
-local Ak = "˚"
-
+Aj = "∆"
+Ak = "˚"
 map("n", Aj, "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", Ak, "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 map("i", Aj, "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", Ak, "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", Aj, ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 map("v", Ak, ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
-
-map("n", "<C-s>", "<CMD>write<CR>", { desc = "Save" })
-map("n", "<leader>qq", "<CMD>quitall<CR>", { desc = "Quit all" })
 
 -- Jump between windows using Ctrl + hjkl
 map("n", "<C-l>", "<CMD>wincmd l<CR>")
