@@ -1,4 +1,5 @@
 vim.pack.add({
+	-- dependencies
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/hakonharnes/img-clip.nvim",
@@ -24,18 +25,29 @@ require("img-clip").setup({
 	},
 })
 
-require("avante").setup({
-	-- Your configuration comes here
-	-- or leave it empty to use the default settings
-	-- refer to the configuration section below
-	provider = "gemini-2.5-pro",
-	input = {
-		provider = "snacks", -- "native" | "dressing" | "snacks"
-		provider_opts = {
-			-- Snacks input configuration
-			title = "Avante Input",
-			icon = " ",
-			placeholder = "Enter your API key...",
-		},
-	},
-})
+local map = vim.keymap.set
+local initialized = false
+
+-- lazy load avante.nvim
+map("n", "<leader>aa", function()
+	if not initialized then
+		require("avante").setup({
+			-- Your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+			provider = "gemini-2.5-pro",
+			input = {
+				provider = "snacks", -- "native" | "dressing" | "snacks"
+				provider_opts = {
+					-- Snacks input configuration
+					title = "Avante Input",
+					icon = " ",
+					placeholder = "Enter your API key...",
+				},
+			},
+		})
+		initialized = true
+	end
+
+	vim.cmd("AvanteAsk")
+end, { desc = "avante: ask" })
