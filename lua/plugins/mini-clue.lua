@@ -5,6 +5,11 @@ vim.pack.add({
 local miniclue = require("mini.clue")
 
 miniclue.setup({
+	window = {
+		config = {
+			width = 50,
+		},
+	},
 	triggers = {
 		-- Leader triggers
 		{ mode = "n", keys = "<Leader>" },
