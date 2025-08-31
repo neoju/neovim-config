@@ -20,5 +20,6 @@ require("plugins.smear_cursor")
 require("plugins.origami")
 require("plugins.logsitter")
 require("plugins.mini-clue")
+require("plugins.grug-far")
 
 require("plugins.misc")

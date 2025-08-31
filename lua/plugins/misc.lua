@@ -13,7 +13,6 @@ vim.pack.add({
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/MagicDuck/grug-far.nvim",
 	"https://github.com/lukas-reineke/virt-column.nvim",
 })
 
@@ -35,5 +34,4 @@ require("cutlass").setup({ cut_key = "x" })
 require("nvim-ts-autotag").setup()
 require("todo-comments").setup()
 
-require("grug-far").setup({ windowCreationCommand = "botright vsplit" })
 require("virt-column").setup()

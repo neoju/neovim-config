@@ -47,25 +47,8 @@ map({ "n", "x" }, "<leader>ca", function()
 end, { desc = "LSP Code Action" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Go to References" })
+map("n", "gy", vim.lsp.buf.type_definition, { desc = "Go to T[y]pe Definition" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
--- search and replace
-map("n", "<leader>sS", function()
-	require("grug-far").open({
-		prefills = {
-			search = vim.fn.expand("<cword>"),
-		},
-	})
-end, { desc = "Search and Replace current word" })
-
-map({ "n", "x" }, "<leader>ss", function()
-	require("grug-far").open({
-		prefills = {
-			paths = vim.fn.expand("%"),
-			search = vim.fn.expand("<cword>"),
-		},
-	})
-end, { desc = "Search and Replace current word - in file" })
-
-map({ "n", "x" }, "<leader>si", function()
-	require("grug-far").open({ visualSelectionUsage = "operate-within-range" })
-end, { desc = "Search and Replace within range" })
+map("n", "<leader>qf", vim.diagnostic.setloclist, { desc = "Open quickfix with diagnostics" })
