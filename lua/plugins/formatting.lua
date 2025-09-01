@@ -46,16 +46,26 @@ conform.setup({
 	formatters = {
 		eslint_stylistic = {
 			command = "eslint_d",
-			args = { "$FILENAME", "--fix" },
+			args = {
+				"--stdin",
+				"--fix-to-stdout",
+				"--stdin-filename",
+
+				"$FILENAME",
+			},
+			exit_codes = { 0, 1 },
+			stdin = true,
 			require_cwd = true,
 			env = {
+				ESLINT_D_PPID = vim.fn.getpid(),
 				ESLINT_USE_FLAT_CONFIG = true,
+				ESLINT_D_LOCAL_ESLINT_ONLY = true,
 			},
 
 			-- A function that calculates the directory to run the command in
 			cwd = require("conform.util").root_file({
 				"eslint.config.mjs",
-				"package.json",
+				"eslint.config.js",
 			}),
 		},
 	},

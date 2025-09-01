@@ -27,7 +27,10 @@ require("mason-lspconfig").setup({
 
 require("mason-tool-installer").setup({
 	ensure_installed = {
-		{ "eslint_d", version = "13.1.2" },
+		{
+			"eslint_d",
+			--version = "13.1.2"
+		},
 		"prettierd",
 	},
 })
