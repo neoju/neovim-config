@@ -18,7 +18,7 @@ require("mason-lspconfig").setup({
 		-- web development
 		"svelte",
 		"vue_ls",
-		"ts_ls",
+		"vtsls",
 		"html",
 		"tailwindcss",
 		"cssls",
@@ -64,44 +64,58 @@ vim.lsp.config("lua_ls", {
 
 local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
 local vuels_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
-vim.lsp.config("ts_ls", {
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-	init_options = {
-		plugins = {
-			{
-				name = "@vue/typescript-plugin",
-				location = vuels_path,
-				languages = { "vue" },
+
+vim.lsp.config("vtsls", {
+	filetypes = { "vue", "typescript", "javascript", "javascriptreact", "typescriptreact" },
+	settings = {
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = vuels_path,
+						languages = { "vue" },
+
+						configNamespace = "typescript",
+					},
+				},
 			},
 		},
-	},
-	settings = {
 		typescript = {
+			suggest = { completeFunctionCalls = true },
 			inlayHints = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
+				enumMemberValues = {
+					enabled = true,
+				},
+				functionLikeReturnTypes = {
+					enabled = true,
+				},
+				parameterNames = { enabled = "all" },
+				parameterTypes = {
+					enabled = true,
+					suppressWhenArgumentMatchesName = true,
+				},
+				propertyDeclarationTypes = {
+					enabled = true,
+				},
+				variableTypes = {
+					enabled = true,
+				},
 			},
 		},
 	},
 })
 
 vim.lsp.config("vue_ls", {
-	-- root_dir = require("lspconfig").util.root_pattern(
-	-- 	"vue.config.js",
-	-- 	"vue.config.ts",
-	-- 	"nuxt.config.js",
-	-- 	"nuxt.config.ts"
-	-- ),
+	filetypes = { "vue" },
 
 	init_options = {
 		vue = {
-			hybridMode = true,
+			hybridMode = false,
+		},
+		typescript = {
+			tsdk = vim.fn.finddir("node_modules/typescript/lib", vim.fn.getcwd() .. ";")
+				or "/path/to/global/typescript/lib", -- Path to TypeScript SDK
 		},
 	},
 	settings = {
