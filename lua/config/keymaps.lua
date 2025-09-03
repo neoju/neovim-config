@@ -28,6 +28,10 @@ map("n", "<C-h>", "<CMD>wincmd h<CR>")
 map("n", "<C-j>", "<CMD>wincmd j<CR>")
 map("n", "<C-k>", "<CMD>wincmd k<CR>")
 
+-- Jump to last edit position
+map("n", "<C-o>", "g;")
+map("n", "<C-i>", "g,")
+
 -- Set a custom keymap to update the window title
 map("n", "<leader>wt", function()
 	-- Prompt for title without blink.cmp interfering
