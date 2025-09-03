@@ -6,7 +6,7 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 
 	{ src = "https://github.com/yetone/avante.nvim" },
-})
+}, { confirm = false })
 
 require("render-markdown").setup({
 	file_types = { "markdown", "Avante" },

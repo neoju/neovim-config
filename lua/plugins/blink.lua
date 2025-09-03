@@ -4,7 +4,7 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.icons", version = "stable" },
 
 	{ src = "https://github.com/Saghen/blink.cmp" },
-})
+}, { confirm = false })
 
 local blink = require("blink.cmp")
 local mini_icons = require("mini.icons")

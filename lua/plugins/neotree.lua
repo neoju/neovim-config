@@ -8,7 +8,7 @@ vim.pack.add({
 		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
 		version = vim.version.range("3"),
 	},
-})
+}, { confirm = false })
 
 local map = vim.keymap.set
 local neotree = require("neo-tree")

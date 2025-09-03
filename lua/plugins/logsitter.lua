@@ -1,6 +1,6 @@
 vim.pack.add({
 	"https://github.com/gaelph/logsitter.nvim",
-})
+}, { confirm = false })
 
 local logsitter = require("logsitter")
 

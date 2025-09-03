@@ -1,6 +1,6 @@
 vim.pack.add({
 	"https://github.com/chrisgrieser/nvim-origami",
-})
+}, { confirm = false })
 
 require("origami").setup({
 	autoFold = {

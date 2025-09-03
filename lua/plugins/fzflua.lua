@@ -5,7 +5,7 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons",
 
 	"https://github.com/ibhagwan/fzf-lua",
-})
+}, { confirm = false })
 
 local fzf_lua = require("fzf-lua")
 local map = vim.keymap.set

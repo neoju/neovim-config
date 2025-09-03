@@ -3,7 +3,7 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons",
 
 	"https://github.com/romgrk/barbar.nvim",
-})
+}, { confirm = false })
 
 local barbar = require("barbar")
 local map = vim.keymap.set

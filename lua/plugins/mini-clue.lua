@@ -1,6 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.clue", version = "stable" },
-})
+}, { confirm = false })
 
 local miniclue = require("mini.clue")
 

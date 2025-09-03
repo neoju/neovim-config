@@ -7,7 +7,7 @@ vim.pack.add({
 	"https://github.com/rachartier/tiny-code-action.nvim",
 
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-})
+}, { confirm = false })
 
 require("mason").setup()
 require("mason-lspconfig").setup({
