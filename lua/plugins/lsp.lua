@@ -56,7 +56,29 @@ vim.lsp.config("lua_ls", {
 				},
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				-- Make the server aware of Neovim runtime files and plugins
+				library = { vim.env.VIMRUNTIME },
+				checkThirdParty = false,
+			},
+			codeLens = {
+				enable = true,
+			},
+			completion = {
+				callSnippet = "Replace",
+			},
+			doc = {
+				privateName = { "^_" },
+			},
+			hint = {
+				enable = true,
+				setType = false,
+				paramType = true,
+				paramName = "Disable",
+				semicolon = "Disable",
+				arrayIndex = "Disable",
+			},
+			telemetry = {
+				enable = false,
 			},
 		},
 	},
