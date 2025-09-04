@@ -6,7 +6,7 @@ local smear_cursor = require("smear_cursor")
 
 smear_cursor.setup({
 	smear_between_buffers = true,
-	smear_to_cmd = true,
+	smear_to_cmd = false,
 	cursor_color = "#ff8800",
 	stiffness = 0.3,
 	trailing_stiffness = 0.1,

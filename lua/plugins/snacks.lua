@@ -4,8 +4,8 @@ vim.pack.add({
 
 local snacks = require("snacks")
 snacks.setup({
-	input = { enabled = true }, -- Explicitly enable the input module
-	scroll = { enabled = true }, -- Enable the scroll module
+	input = { enabled = true },
+	scroll = { enabled = true },
 	notifier = { enabled = true },
 	terminal = { enabled = true },
 	indent = { enabled = true },
