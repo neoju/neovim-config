@@ -10,9 +10,36 @@ snacks.setup({
 	terminal = { enabled = true },
 	indent = { enabled = true },
 	scope = { enabled = true },
-	scratch = { enabled = true },
 	zen = { enabled = true },
 	statuscolumn = { enabled = true },
+	scratch = {
+		enabled = true,
+		win = {
+			keys = {
+				["del"] = {
+					"<c-bs>",
+					function(self)
+						local file_path = vim.api.nvim_buf_get_name(self.buf)
+						vim.cmd([[close]])
+						vim.fn.delete(file_path)
+
+						snacks.scratch.select()
+					end,
+					desc = "delete",
+					mode = { "n" },
+				},
+				["back"] = {
+					"<esc>",
+					function()
+						vim.cmd([[close]])
+						snacks.scratch.select()
+					end,
+					desc = "back",
+					mode = { "n" },
+				},
+			},
+		},
+	},
 	picker = {
 		win = {
 			input = {
