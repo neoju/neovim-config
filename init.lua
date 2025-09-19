@@ -23,5 +23,7 @@ require("plugins.mini-clue")
 require("plugins.grug-far")
 require("plugins.leetcode")
 require("plugins.noice")
+require("plugins.flash")
+require("plugins.mini-surround")
 
 require("plugins.misc")

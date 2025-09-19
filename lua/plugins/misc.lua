@@ -4,7 +4,6 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.icons", version = "stable" },
 	{ src = "https://github.com/echasnovski/mini.pairs", version = "stable" },
 	{ src = "https://github.com/echasnovski/mini.statusline", version = "stable" },
-	{ src = "https://github.com/echasnovski/mini.surround", version = "stable" },
 	-- other
 	"https://github.com/gbprod/cutlass.nvim",
 	"https://github.com/folke/todo-comments.nvim",
@@ -21,7 +20,6 @@ require("mini.hipatterns").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.statusline").setup()
-require("mini.surround").setup()
 
 -- other
 require("cutlass").setup({ cut_key = "x" })
