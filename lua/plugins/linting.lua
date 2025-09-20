@@ -36,6 +36,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
 	group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
 	callback = function()
 		Debounce(100, function()
+			-- check if the root folder have no eslint config file
+			if vim.fn.glob(".eslintrc*") == "" or vim.fn.glob("eslint.config.*") == "" then
+				return
+			end
+
 			lint.try_lint()
 		end)()
 	end,
